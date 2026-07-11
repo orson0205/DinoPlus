@@ -1,25 +1,51 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>小恐龍 PLUSS</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小恐龍 PLUSS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="game-shell">
+    <header class="topbar">
+      <h1>小恐龍 PLUSS</h1>
+      <div class="stats">
+        <span>距離：<strong id="distance">0</strong> m</span>
+        <span>分數：<strong id="score">0</strong></span>
+        <span>最高分：<strong id="highScore">0</strong></span>
+      </div>
+    </header>
 
-<div id="ui">
+    <section class="canvas-wrap">
+      <canvas id="game" width="1000" height="420"></canvas>
 
-    <div>🪙 金幣：<span id="coin">0</span></div>
+      <div id="startPanel" class="overlay">
+        <div class="panel">
+          <h2>準備開始</h2>
+          <p>空白鍵／↑ 跳躍，C／↓ 蹲下，Esc 暫停。</p>
+          <button id="startButton" type="button">開始遊戲</button>
+        </div>
+      </div>
 
-    <div>🏃 距離：<span id="distance">0</span> m</div>
+      <div id="messagePanel" class="overlay hidden">
+        <div class="panel">
+          <h2 id="messageTitle">遊戲暫停</h2>
+          <p id="messageText"></p>
+          <button id="restartButton" type="button">重新開始</button>
+        </div>
+      </div>
+    </section>
 
-    <div>⭐ 分數：<span id="score">0</span></div>
+    <section class="controls">
+      <button id="jumpButton" type="button">跳躍</button>
+      <button id="duckButton" type="button">蹲下</button>
+      <button id="pauseButton" type="button">暫停</button>
+    </section>
 
-</div>
+    <p class="help">電腦：Space／↑ 跳躍、C／↓ 蹲下、Esc 暫停、R 重新開始</p>
+  </main>
 
-<canvas id="game" width="1000" height="350"></canvas>
-
-<script src="game.js"></script>
-
+  <script src="game.js"></script>
 </body>
 </html>
